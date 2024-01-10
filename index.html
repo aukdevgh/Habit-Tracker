@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habit Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="app">
+        <aside class="panel">
+            <img class="logo" src="images/logo.svg" alt="logo Habit App" width="66" height="71">
+            <nav class="menu">
+                <ul class="menu__list">
+                </ul>
+                <button class="btn btn_add" aria-label="add" onclick="popupToggle()">
+                    <img class="btn__img" src="images/add.svg" alt="add" width="25" height="25">
+                </button>
+            </nav>
+        </aside>
+        <div class="content">
+            <header class="content__header">
+                <h1 class="content__title">Заголовок</h1>
+
+                <div class="progress">
+                    <div class="progress__text">
+                        <div class="progress__name">Прогресс</div>
+                        <div class="progress__percent">0%</div>
+                    </div>
+                    <div class="progress__bar">
+                        <div class="progress__cover-bar"></div>
+                    </div>
+                </div>
+            </header>
+            <main class="content__main">
+                <ul class="content__list"></ul>
+
+                <div class="habit">
+                    <div class="habit__day habit__day_next">День 1</div>
+                    <form class="form" onsubmit="addDay(event)">
+                        <img class="form__icon" src="images/comment.svg" alt="comment">
+                        <input class="form__input" name="comment" type="text" placeholder="comment">
+                        <button class="form__submit">Готово</button>
+                    </form>
+                </div>
+
+                <button class="btn btn_delete" onclick="deleteHabit()">
+                    Удалить привычку
+                    <img class="btn__img" src="images/delete.svg" alt="удалить" width="25" height="25">
+                </button>
+            </main>
+        </div>
+        <!-- /.content -->
+        <div class="popup popup_hidden">
+            <div class="popup__content">
+                <h2 class="popup__title">Новая привычка</h2>
+                <button class="popup__close" aria-label="close" onclick="popupToggle()">
+                    <img src="./images/close.svg" alt="popup close" width="24" height="24">
+                </button>
+
+                <div class="select">
+                    <h3 class="select__title">Иконка</h3>
+
+                    <ul class="select__list"></ul>
+                </div>
+                <!-- /.select -->
+                <form class="popup__form form" onsubmit="addHabit(event)">
+                    <input class="form__input"  type="text" name="name" placeholder="Название">
+                    <input class="form__input"  type="text" name="icon" placeholder="Иконка" value="" hidden>
+                    <input class="form__input"  type="text" name="target" placeholder="Цель">
+                    <button class="form__submit" type="submit">Добавить</button>
+                </form>
+            </div>
+            <!-- /.popup__content -->
+        </div>
+        <!-- /.popup -->
+    </div>
+    <!-- /.app -->
+    <script src="scripts/app.js"></script>
+</body>
+</html>
